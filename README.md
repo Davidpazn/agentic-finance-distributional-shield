@@ -28,8 +28,9 @@ Everything is **self-contained and offline**: market data is synthetic, the LLM 
 |---|---|---|
 | [`notebooks/Agentic_Finance_Giant_Distributional_Shield_All_Examples.ipynb`](notebooks/Agentic_Finance_Giant_Distributional_Shield_All_Examples.ipynb) | 1–23 | Typed contracts → synthetic covariance model → deterministic baseline → distributional shield (VaR/CVaR/tail-prob) → worked examples (equity buy/sell, option delta, FX, credit, rates/DV01, basket rebalance) → stress regimes & heavy tails → model card → consolidated audit log → **multi-agent governance committee** (§21–23) |
 | [`notebooks/Agentic_Finance_Giant_Distributional_Shield_Agent_Negotiator.ipynb`](notebooks/Agentic_Finance_Giant_Distributional_Shield_Agent_Negotiator.ipynb) | 1–25 | Everything above, plus the **agent negotiator shield** (§24–25): specialist negotiators that bargain a proposal down to the largest admissible size — but can never weaken the hard risk gates |
+| [`notebooks/Agentic_Finance_Agentic_RAG_Distributional_Shield.ipynb`](notebooks/Agentic_Finance_Agentic_RAG_Distributional_Shield.ipynb) | 1–7 | **Agentic RAG layer**: builds a TF-IDF evidence corpus from the shield's audit logs in `data/`, retrieves top-k evidence per governance question, and produces grounded answers that fail closed (escalate) when evidence is weak — the RAG layer explains decisions, it never authorizes execution |
 
-The second notebook is a strict superset of the first; sections 1–23 are identical in both.
+The second notebook is a strict superset of the first; sections 1–23 are identical in both. The RAG notebook consumes the audit CSVs the negotiator notebook produces (it reads them from `data/`, or from its own directory when run standalone).
 
 ### Multi-agent committee (sections 21–23)
 
@@ -54,25 +55,34 @@ Requires Python ≥ 3.9 and Pydantic **v2** (the contracts use `model_validator`
 
 ## Sample data (`data/`)
 
-All CSVs are synthetic simulation output from a verified end-to-end run of the Agent_Negotiator notebook. Monte Carlo metrics (VaR/CVaR/tail probability) vary slightly run-to-run; the decisions do not.
+All CSVs are synthetic simulation output from a verified end-to-end run of the Agent_Negotiator and Agentic_RAG notebooks. The Monte Carlo simulation uses fixed seeds, so results are reproducible on a given platform; exact metric values (VaR/CVaR/tail probability) can differ slightly across platforms and BLAS implementations — the decisions do not.
 
 | File | Contents |
 |---|---|
 | `agentic_finance_giant_notebook_audit_log.csv` | One row per shield evaluation across all worked examples and stress/distribution variants (status, reason, VaR_95, CVaR_95, tail probability, exposure metrics, rules checked) |
 | `agentic_finance_multiagent_decision_log.csv` | Final committee decision per proposal (consensus vs final status, shield verdict, risk metrics) |
 | `agentic_finance_multiagent_opinion_log.csv` | One row per agent vote per proposal (role, agent_name, vote, confidence, reason, diagnostics) |
-| `agentic_finance_agent_negotiator_shield_outcomes.csv` | Final negotiation outcome per session (original vs negotiated notional, status precedence, execution terms, shield verdict) |
+| `agentic_finance_agent_negotiator_shield_outcomes.csv` | Final negotiation outcome per session — six demo sessions incl. a $5M HY_CDS proposal negotiated down to ~$1M (original vs negotiated notional, status precedence, execution terms, shield verdict) |
 | `agentic_finance_agent_negotiator_shield_offers.csv` | Per-round, per-negotiator offer log (votes, counteroffer notionals, binding terms, diagnostics) |
+| `agentic_rag_corpus.csv` | RAG evidence corpus: architecture/governance notes plus one document per audit row, committee decision, negotiation outcome, and offer |
+| `agentic_rag_queries.csv` | Example governance and execution questions (Q001–Q006) with expected focus |
+| `agentic_rag_retrieval_log.csv` | Top-k retrieved evidence per query (doc ids, sources, TF-IDF cosine scores) |
+| `agentic_rag_agent_opinion_log.csv` | Retriever / EvidenceQuality / DistributionalRisk / Compliance agent votes per query |
+| `agentic_rag_answer_log.csv` | Final grounded answers with status (answer / escalate / reject), evidence ids, and the fail-closed weak-evidence gate |
 
 ## Repository layout
 
 ```
-├── notebooks/    # the two executable notebooks (outputs included)
-├── data/         # sample CSV audit logs from a verified run
+├── notebooks/    # the three executable notebooks (outputs included)
+├── data/         # sample CSV audit logs + RAG corpus from a verified run
 ├── docs/         # per-extension design notes
 ├── requirements.txt
 └── README.md
 ```
+
+### Agentic RAG layer
+
+`RetrievalEngine` (TF-IDF + cosine similarity) retrieves evidence from a corpus built out of the shield's own audit logs; an agentic review layer (Retriever / EvidenceQuality / DistributionalRisk / Compliance agents) votes on each answer. Weak or missing evidence triggers escalation rather than invention — the RAG layer grounds and explains shield decisions but cannot authorize execution. See [`docs/README_AGENTIC_RAG.md`](docs/README_AGENTIC_RAG.md).
 
 ## Design principles
 
@@ -80,3 +90,4 @@ All CSVs are synthetic simulation output from a verified end-to-end run of the A
 - **Risk is a property of the resulting portfolio**, not the trade in isolation: shields evaluate `w_t + a_t`.
 - **Agents advise, shields decide** — neither the committee nor the negotiators can override deterministic or distributional gates.
 - **Everything is audited** — every evaluation, vote, offer, and verdict lands in a typed CSV log.
+- **RAG explains, never executes** — answers must cite retrieved evidence and fail closed when it is weak.

@@ -1,17 +1,17 @@
 committee_id,symbol,side,notional_value,role,agent_name,vote,confidence,reason,metric_thesis_keyword_score,metric_crowded_symbol,metric_restricted_list_hit,metric_outside_universe,metric_shield_status,metric_VaR_95,metric_CVaR_95,metric_P_loss_gt_limit,metric_max_symbol_weight_after,metric_gross_exposure_multiple_after
-c941e9ff,MSFT,BUY,75000.0,research,FundamentalResearchAgent,support,0.8500000000000001,Rationale contains an identifiable investment or hedging thesis.,3.0,,,,,,,,,
-c941e9ff,MSFT,BUY,75000.0,technical,TechnicalTimingAgent,support,0.62,No technical crowding flag was triggered.,,False,,,,,,,,
-c941e9ff,MSFT,BUY,75000.0,compliance,ComplianceAgent,support,0.98,No compliance block was detected.,,,False,False,,,,,,
-c941e9ff,MSFT,BUY,75000.0,risk,DistributionalRiskAgent,support,0.95,All deterministic and distributional checks passed.,,,,,allow,55838.9657252466,69975.29375095731,0.00904,0.26,0.96
-9d35f5eb,NVDA,BUY,300000.0,research,FundamentalResearchAgent,support,0.75,Rationale contains an identifiable investment or hedging thesis.,2.0,,,,,,,,,
-9d35f5eb,NVDA,BUY,300000.0,technical,TechnicalTimingAgent,escalate,0.7,Buy trade is in a crowded/high-beta name; timing confirmation is required.,,True,,,,,,,,
-9d35f5eb,NVDA,BUY,300000.0,compliance,ComplianceAgent,support,0.98,No compliance block was detected.,,,False,False,,,,,,
-9d35f5eb,NVDA,BUY,300000.0,risk,DistributionalRiskAgent,support,0.95,All deterministic and distributional checks passed.,,,,,allow,67243.02847630266,84310.38218572564,0.02456,0.26,1.05
-99da5a99,GME,BUY,50000.0,research,FundamentalResearchAgent,support,0.65,Rationale contains an identifiable investment or hedging thesis.,1.0,,,,,,,,,
-99da5a99,GME,BUY,50000.0,technical,TechnicalTimingAgent,escalate,0.7,Buy trade is in a crowded/high-beta name; timing confirmation is required.,,True,,,,,,,,
-99da5a99,GME,BUY,50000.0,compliance,ComplianceAgent,reject,1.0,GME is on the restricted list.,,,True,,,,,,,
-99da5a99,GME,BUY,50000.0,risk,DistributionalRiskAgent,reject,0.95,Symbol GME is restricted.,,,,,reject,,,,,
-617bb1fb,TLT,BUY,175000.0,research,FundamentalResearchAgent,support,0.65,Rationale contains an identifiable investment or hedging thesis.,1.0,,,,,,,,,
-617bb1fb,TLT,BUY,175000.0,technical,TechnicalTimingAgent,support,0.62,No technical crowding flag was triggered.,,False,,,,,,,,
-617bb1fb,TLT,BUY,175000.0,compliance,ComplianceAgent,support,0.98,No compliance block was detected.,,,False,False,,,,,,
-617bb1fb,TLT,BUY,175000.0,risk,DistributionalRiskAgent,support,0.95,All deterministic and distributional checks passed.,,,,,allow,53995.56463548282,67448.60200830868,0.007,0.26,1.0
+7897af83,MSFT,BUY,75000.0,research,FundamentalResearchAgent,support,0.8500000000000001,Rationale contains an identifiable investment or hedging thesis.,3.0,,,,,,,,,
+7897af83,MSFT,BUY,75000.0,technical,TechnicalTimingAgent,support,0.62,No technical crowding flag was triggered.,,False,,,,,,,,
+7897af83,MSFT,BUY,75000.0,compliance,ComplianceAgent,support,0.98,No compliance block was detected.,,,False,False,,,,,,
+7897af83,MSFT,BUY,75000.0,risk,DistributionalRiskAgent,support,0.95,All deterministic and distributional checks passed.,,,,,allow,55838.9657252466,69975.29375095731,0.00904,0.26,0.96
+71f5f292,NVDA,BUY,300000.0,research,FundamentalResearchAgent,support,0.75,Rationale contains an identifiable investment or hedging thesis.,2.0,,,,,,,,,
+71f5f292,NVDA,BUY,300000.0,technical,TechnicalTimingAgent,escalate,0.7,Buy trade is in a crowded/high-beta name; timing confirmation is required.,,True,,,,,,,,
+71f5f292,NVDA,BUY,300000.0,compliance,ComplianceAgent,support,0.98,No compliance block was detected.,,,False,False,,,,,,
+71f5f292,NVDA,BUY,300000.0,risk,DistributionalRiskAgent,support,0.95,All deterministic and distributional checks passed.,,,,,allow,67243.02847630266,84310.38218572564,0.02456,0.26,1.05
+90c8b9e6,GME,BUY,50000.0,research,FundamentalResearchAgent,support,0.65,Rationale contains an identifiable investment or hedging thesis.,1.0,,,,,,,,,
+90c8b9e6,GME,BUY,50000.0,technical,TechnicalTimingAgent,escalate,0.7,Buy trade is in a crowded/high-beta name; timing confirmation is required.,,True,,,,,,,,
+90c8b9e6,GME,BUY,50000.0,compliance,ComplianceAgent,reject,1.0,GME is on the restricted list.,,,True,,,,,,,
+90c8b9e6,GME,BUY,50000.0,risk,DistributionalRiskAgent,reject,0.95,Symbol GME is restricted.,,,,,reject,,,,,
+db843406,TLT,BUY,175000.0,research,FundamentalResearchAgent,support,0.65,Rationale contains an identifiable investment or hedging thesis.,1.0,,,,,,,,,
+db843406,TLT,BUY,175000.0,technical,TechnicalTimingAgent,support,0.62,No technical crowding flag was triggered.,,False,,,,,,,,
+db843406,TLT,BUY,175000.0,compliance,ComplianceAgent,support,0.98,No compliance block was detected.,,,False,False,,,,,,
+db843406,TLT,BUY,175000.0,risk,DistributionalRiskAgent,support,0.95,All deterministic and distributional checks passed.,,,,,allow,53995.56463548282,67448.60200830868,0.007,0.26,1.0

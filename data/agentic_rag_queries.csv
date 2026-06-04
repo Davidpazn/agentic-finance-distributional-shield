@@ -1,0 +1,7 @@
+query_id,user_question,expected_focus
+Q001,Can the agent execute an 800k TSLA buy under the distributional shield?,TSLA hard risk rejection and tail probability
+Q002,Explain why typed Pydantic validation is not enough for financial validity.,semantic validity versus distributional financial validity
+Q003,What happens to the HY_CDS proposal after liquidity and execution negotiation?,HY_CDS liquidity cap staged VWAP child orders kill switch
+Q004,What was the final negotiated NVDA outcome and why did it escalate?,NVDA negotiated notional CVaR escalation
+Q005,Which controls make the framework auditable for governance?,audit rows rules checked source diversity final status
+Q006,Should the RAG agent invent an answer when retrieved evidence is weak?,evidence policy fail closed escalation

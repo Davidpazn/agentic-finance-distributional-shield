@@ -1,0 +1,25 @@
+query_id,agent_name,vote,confidence,reason
+Q001,RetrieverAgent,support,0.6165717802014075,Top retrieval score 0.2666; source diversity 3
+Q001,EvidenceQualityAgent,support,0.9,Evidence is sufficiently grounded.
+Q001,DistributionalRiskAgent,reject,0.88,Risk status: distributional_reject
+Q001,ComplianceAgent,reject,0.86,Do not bypass shield; include governance caveat.
+Q002,RetrieverAgent,support,0.6069229905633186,Top retrieval score 0.2569; source diversity 2
+Q002,EvidenceQualityAgent,support,0.9,Evidence is sufficiently grounded.
+Q002,DistributionalRiskAgent,answer,0.88,Risk status: conceptual
+Q002,ComplianceAgent,support,0.86,Do not bypass shield; include governance caveat.
+Q003,RetrieverAgent,support,0.5357569110350785,Top retrieval score 0.1858; source diversity 2
+Q003,EvidenceQualityAgent,support,0.9,Evidence is sufficiently grounded.
+Q003,DistributionalRiskAgent,escalate,0.88,Risk status: liquidity_execution_review
+Q003,ComplianceAgent,support,0.86,Do not bypass shield; include governance caveat.
+Q004,RetrieverAgent,support,0.579011827006038,Top retrieval score 0.2290; source diversity 2
+Q004,EvidenceQualityAgent,support,0.9,Evidence is sufficiently grounded.
+Q004,DistributionalRiskAgent,escalate,0.88,Risk status: conditional_acceptance
+Q004,ComplianceAgent,support,0.86,Do not bypass shield; include governance caveat.
+Q005,RetrieverAgent,escalate,0.44616354309225803,Top retrieval score 0.0962; source diversity 1
+Q005,EvidenceQualityAgent,escalate,0.55,Evidence is too weak; fail closed.
+Q005,DistributionalRiskAgent,escalate,0.88,Risk status: weak_evidence
+Q005,ComplianceAgent,support,0.86,Do not bypass shield; include governance caveat.
+Q006,RetrieverAgent,support,0.8102142815324477,Top retrieval score 0.4602; source diversity 2
+Q006,EvidenceQualityAgent,support,0.9,Evidence is sufficiently grounded.
+Q006,DistributionalRiskAgent,escalate,0.88,Risk status: rag_fail_closed
+Q006,ComplianceAgent,support,0.86,Do not bypass shield; include governance caveat.
