@@ -59,7 +59,7 @@ All CSVs are synthetic simulation output from a verified end-to-end run of the A
 
 | File | Contents |
 |---|---|
-| `agentic_finance_giant_notebook_audit_log.csv` | One row per shield evaluation across all worked examples and stress/distribution variants (status, reason, VaR_95, CVaR_95, tail probability, exposure metrics, rules checked) |
+| `agentic_finance_giant_notebook_audit_log.csv` | One row per shield evaluation across all worked examples and stress/distribution variants (status, reason, VaR_95, CVaR_95, tail probability, exposure metrics, rules checked, the governing policy limits per row, plus schema-validation rejects and DV01 checks) |
 | `agentic_finance_multiagent_decision_log.csv` | Final committee decision per proposal (consensus vs final status, shield verdict, risk metrics) |
 | `agentic_finance_multiagent_opinion_log.csv` | One row per agent vote per proposal (role, agent_name, vote, confidence, reason, diagnostics) |
 | `agentic_finance_agent_negotiator_shield_outcomes.csv` | Final negotiation outcome per session — six demo sessions incl. a $5M HY_CDS proposal negotiated down to ~$1M (original vs negotiated notional, status precedence, execution terms, shield verdict) |
@@ -82,7 +82,7 @@ All CSVs are synthetic simulation output from a verified end-to-end run of the A
 
 ### Agentic RAG layer
 
-`RetrievalEngine` (TF-IDF + cosine similarity) retrieves evidence from a corpus built out of the shield's own audit logs; an agentic review layer (Retriever / EvidenceQuality / DistributionalRisk / Compliance agents) votes on each answer. Weak or missing evidence triggers escalation rather than invention — the RAG layer grounds and explains shield decisions but cannot authorize execution. See [`docs/README_AGENTIC_RAG.md`](docs/README_AGENTIC_RAG.md).
+`RetrievalEngine` (TF-IDF + cosine similarity, with metadata filtering by symbol and source type) retrieves evidence from a corpus built out of the shield's own audit logs. Trade-specific answers are composed from the highest-ranked decision row for the named trade and quote it as evidence; weak, missing, or contradictory evidence triggers escalation rather than invention. A review layer (Retriever / EvidenceQuality / DistributionalRisk / Compliance) derives typed audit rows from the same evidence signals. The RAG layer grounds and explains shield decisions but cannot authorize execution. See [`docs/README_AGENTIC_RAG.md`](docs/README_AGENTIC_RAG.md).
 
 ## Design principles
 
