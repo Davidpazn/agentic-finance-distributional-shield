@@ -1,0 +1,9 @@
+# Core dependencies for the distributional-shield notebooks
+numpy>=2.0
+pandas>=2.2
+matplotlib>=3.9
+pydantic>=2.7
+
+# Notebook tooling
+jupyter
+ipython
