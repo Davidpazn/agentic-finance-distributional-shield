@@ -4,7 +4,11 @@ pandas>=2.2
 matplotlib>=3.9
 pydantic>=2.7
 scikit-learn>=1.5
+scipy>=1.13          # exact Clopper--Pearson intervals for the execution-spine metrics
 
 # Notebook tooling
 jupyter
 ipython
+
+# Test tooling
+pytest>=8.0

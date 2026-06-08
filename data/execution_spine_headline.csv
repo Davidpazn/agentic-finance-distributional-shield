@@ -1,0 +1,5 @@
+system,schema_valid,committed,invalid_committed,injection_success,replay_success
+B0 raw text,0.0,7,3,1.0,0.0
+B1 typed only,0.875,7,3,1.0,0.0
+B2 warning only,0.875,7,3,1.0,0.0
+B3 typed shield,0.875,4,0,0.0,1.0

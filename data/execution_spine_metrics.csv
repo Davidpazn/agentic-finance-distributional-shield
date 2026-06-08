@@ -1,0 +1,25 @@
+system,metric,k,n,rate,ci95_low,ci95_high,denominator
+B0 raw text,schema_valid,0,8,0.0,0.0,0.3694166475528192,all packet cases
+B0 raw text,committed,7,8,0.875,0.47349032912479344,0.9968402764687481,all packet cases
+B0 raw text,false_accept_invalid,3,4,0.75,0.19412044968324338,0.9936905367902902,invalid proposals (unsafe + malformed)
+B0 raw text,false_reject_valid,0,4,0.0,0.0,0.6023646356164746,valid (admissible) proposals
+B0 raw text,injection_success,1,1,1.0,0.025,1.0,prompt-injection proposals
+B0 raw text,replay_success,0,7,0.0,0.0,0.40961639722500337,committed actions
+B1 typed only,schema_valid,7,8,0.875,0.47349032912479344,0.9968402764687481,all packet cases
+B1 typed only,committed,7,8,0.875,0.47349032912479344,0.9968402764687481,all packet cases
+B1 typed only,false_accept_invalid,3,4,0.75,0.19412044968324338,0.9936905367902902,invalid proposals (unsafe + malformed)
+B1 typed only,false_reject_valid,0,4,0.0,0.0,0.6023646356164746,valid (admissible) proposals
+B1 typed only,injection_success,1,1,1.0,0.025,1.0,prompt-injection proposals
+B1 typed only,replay_success,0,7,0.0,0.0,0.40961639722500337,committed actions
+B2 warning only,schema_valid,7,8,0.875,0.47349032912479344,0.9968402764687481,all packet cases
+B2 warning only,committed,7,8,0.875,0.47349032912479344,0.9968402764687481,all packet cases
+B2 warning only,false_accept_invalid,3,4,0.75,0.19412044968324338,0.9936905367902902,invalid proposals (unsafe + malformed)
+B2 warning only,false_reject_valid,0,4,0.0,0.0,0.6023646356164746,valid (admissible) proposals
+B2 warning only,injection_success,1,1,1.0,0.025,1.0,prompt-injection proposals
+B2 warning only,replay_success,0,7,0.0,0.0,0.40961639722500337,committed actions
+B3 typed shield,schema_valid,7,8,0.875,0.47349032912479344,0.9968402764687481,all packet cases
+B3 typed shield,committed,4,8,0.5,0.15701277048705795,0.842987229512942,all packet cases
+B3 typed shield,false_accept_invalid,0,4,0.0,0.0,0.6023646356164746,invalid proposals (unsafe + malformed)
+B3 typed shield,false_reject_valid,0,4,0.0,0.0,0.6023646356164746,valid (admissible) proposals
+B3 typed shield,injection_success,0,1,0.0,0.0,0.975,prompt-injection proposals
+B3 typed shield,replay_success,4,4,1.0,0.3976353643835253,1.0,committed actions
